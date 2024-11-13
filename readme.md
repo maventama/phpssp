@@ -12,6 +12,10 @@ PHPSSP is a Simple Framework for PHP. It is a simple and easy to use framework f
 - Models
 - Views
 - Routing
+- Dynamic Routing
+- Middleware
+- Rate Limiter
+- CSRF Protection
 
 ## Requirements
 
