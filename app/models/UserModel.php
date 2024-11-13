@@ -2,15 +2,9 @@
 // app/models/UserModel.php
 
 require_once __DIR__ . '/../Database.php';
+require_once __DIR__ . '/../models/Model.php';
 
-class UserModel {
-    private $db;
-
-    public function __construct() {
-        // Inisialisasi koneksi database
-        $config = require __DIR__ . '/../config.php';
-        $this->db = new Database($config);
-    }
+class UserModel extends Model {
     public function getAll()
     {
         // Query data dari database dengan nama tabel 'users'
