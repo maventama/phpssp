@@ -25,7 +25,11 @@ PHPSSP is a Simple Framework for PHP. It is a simple and easy to use framework f
 
 ## Installation
 
-You can install PHPSSP using git clone.
+You can install PHPSSP using git clone or composer.
+
+```bash
+composer create-project maventama/phpssp
+```
 
 ```bash
 git clone https://github.com/maventama/phpssp.git
