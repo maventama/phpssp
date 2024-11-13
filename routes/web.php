@@ -3,14 +3,12 @@
 
 require_once __DIR__ . '/../app/library/Router.php';
 
-// Inisialisasi objek router
 $router = new Router();
 
-// Definisikan route dengan parameter dinamis menggunakan metode add
-$router->add('GET', '/', 'HomeController@index');
-$router->add('GET', '/about', 'HomeController@about');
-// $router->add('GET', '/user/{id}', 'UserController@show');
-// $router->add('GET', '/post/{slug}', 'PostController@detail');
+// Menambahkan middleware RateLimiter dan InputSanitizer
+$router->add('GET', '/', 'HomeController@index', ['RateLimiter', 'InputSanitizer']);
+$router->add('GET', '/about', 'HomeController@about', ['RateLimiter', 'InputSanitizer']);
+$router->add('POST', '/submit-form', 'FormController@submit', ['RateLimiter', 'InputSanitizer']);
 
-// Fungsi untuk menjalankan routing berdasarkan URL saat ini
+// Fungsi untuk dispatch route
 $router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
