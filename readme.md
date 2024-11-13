@@ -16,6 +16,7 @@ PHPSSP is a Simple Framework for PHP. It is a simple and easy to use framework f
 - Middleware
 - Rate Limiter
 - CSRF Protection
+- Input Sanitization
 
 ## Requirements
 
