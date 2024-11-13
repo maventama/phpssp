@@ -1,9 +1,9 @@
 {
-    "name": "ptm/esdm-dashboard",
+    "name": "maventama/phpssp",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Ptm\\EsdmDashboard\\": "src/"
+            "App\\": "app/"
         }
     },
     "authors": [
