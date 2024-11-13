@@ -2,7 +2,7 @@
 // app/controllers/HomeController.php
 
 require_once __DIR__ . '/Controller.php';
-require_once __DIR__ . '/../models/GaugeModel.php';
+require_once __DIR__ . '/../models/UserModel.php';
 
 class HomeController extends Controller {
     private $db;

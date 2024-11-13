@@ -1,7 +1,7 @@
 <?php
 // app/models/UserModel.php
 
-require_once __DIR__ . '/../Database.php';
+require_once __DIR__ . '/../Library/Database.php';
 
 class Model {
     protected $db;

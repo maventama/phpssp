@@ -1,23 +1,16 @@
 <?php
 // routes/web.php
 
-$routes = [
-    '/' => ['controller' => 'HomeController', 'action' => 'index'],
-    '/about' => ['controller' => 'HomeController', 'action' => 'about'],
-];
+require_once __DIR__ . '/../app/library/Router.php';
 
-// Fungsi sederhana untuk menangani rute
-function route($uri, $routes) {
-    if (array_key_exists($uri, $routes)) {
-        $controllerName = $routes[$uri]['controller'];
-        $action = $routes[$uri]['action'];
+// Inisialisasi objek router
+$router = new Router();
 
-        require_once __DIR__ . '/../app/controllers/' . $controllerName . '.php';
-        $controller = new $controllerName;
-        $controller->$action();
-    } else {
-        // Jika rute tidak ditemukan
-        http_response_code(404);
-        echo "404 - Page Not Found";
-    }
-}
+// Definisikan route dengan parameter dinamis menggunakan metode add
+$router->add('GET', '/', 'HomeController@index');
+$router->add('GET', '/about', 'HomeController@about');
+// $router->add('GET', '/user/{id}', 'UserController@show');
+// $router->add('GET', '/post/{slug}', 'PostController@detail');
+
+// Fungsi untuk menjalankan routing berdasarkan URL saat ini
+$router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

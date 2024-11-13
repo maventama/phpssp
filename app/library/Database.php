@@ -1,5 +1,5 @@
 <?php
-// app/Database.php
+// app/Library/Database.php
 
 class Database {
     private $pdo;
