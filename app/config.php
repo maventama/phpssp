@@ -13,4 +13,8 @@ return [
         'user' => $_ENV['DB_USER'],
         'pass' => $_ENV['DB_PASS'],
     ],
+    'rate_limiter' => [
+        'max_requests' => $_ENV['RATE_LIMITER_MAX_REQUESTS'],
+        'time_window' => $_ENV['RATE_LIMITER_TIME_WINDOW'],
+    ]
 ];

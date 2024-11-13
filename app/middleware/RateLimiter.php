@@ -4,6 +4,11 @@ class RateLimiter {
     // Tentukan jumlah request maksimum per IP dalam periode waktu tertentu (misalnya 100 request per 60 detik)
     private $maxRequests = 100;
     private $timeWindow = 60; // dalam detik
+    public function __construct(){
+        $config = require __DIR__ . '/../config.php';
+        $this->maxRequests = $config['rate_limiter']['max_requests'];
+        $this->timeWindow = $config['rate_limiter']['time_window'];
+    }
 
     public function handle($request) {
         $ip = $this->getClientIP();
