@@ -13,14 +13,7 @@ class UserModel {
     }
     public function getAll()
     {
-        // Query data dari database dengan nama tabel 'gauge'
-        $gauges = $this->db->query("SELECT * FROM gauge");
-        $gaugesWithPercents = [];
-        foreach ($gauges as $gauge) {
-            $gauge['percent'] = round($gauge['real_kontrak'] / $gauge['pagu'] * 100, 2);
-            $gaugesWithPercents[] = $gauge;
-        }
-
-        return $gaugesWithPercents;
+        // Query data dari database dengan nama tabel 'users'
+        $users = $this->db->query("SELECT * FROM users");
     }
 }
