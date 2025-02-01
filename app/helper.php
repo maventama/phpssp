@@ -8,3 +8,9 @@ function e($string) {
 function csrf_token() {
     return CSRF::generateToken();
 }
+function dumpdie($var) {
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+    die();
+}
