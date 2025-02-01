@@ -1,12 +1,14 @@
 <?php
 // app/Library/Database.php
 
-class Database {
+class Database
+{
     private $pdo;
 
-    public function __construct($config) {
+    public function __construct($config)
+    {
         try {
-            $dsn = "mysql:host={$config['db']['host']};dbname={$config['db']['name']};charset=utf8mb4";
+            $dsn = "mysql:host={$config['db']['host']};port={$config['db']['port']};dbname={$config['db']['name']};charset=utf8mb4";
             $this->pdo = new PDO($dsn, $config['db']['user'], $config['db']['pass'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -16,7 +18,8 @@ class Database {
         }
     }
 
-    public function query($query, $params = []) {
+    public function query($query, $params = [])
+    {
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll();
