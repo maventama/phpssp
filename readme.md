@@ -17,6 +17,7 @@ PHPSSP is a Simple Framework for PHP. It is a simple and easy to use framework f
 - Rate Limiter
 - CSRF Protection
 - Input Sanitization
+- Integrated with Tailwind CSS
 
 ## Requirements
 
@@ -41,4 +42,17 @@ composer install
 
 ```bash
 php -S localhost:8000 -t public
+```
+
+## Tailwind CSS Integration
+
+You can integrate Tailwind CSS with PHPSSP by running the following command.
+
+```bash
+npm install
+```
+
+```bash
+# Compile CSS with this command
+npx @tailwindcss/cli -i ./views/styles/input.css -o ./public/css/output.css --watch
 ```
