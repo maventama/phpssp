@@ -11,7 +11,7 @@ class Router
 
     public function add($method, $route, $action, $middleware = [])
     {
-        $routePattern = preg_quote($route, '/');
+        $routePattern = str_replace('/', '\/', $route);
         $routePattern = preg_replace_callback('/\{([a-zA-Z0-9_]+)\}/', function ($matches) {
             return '(?P<' . $matches[1] . '>[a-zA-Z0-9_-]+)';
         }, $routePattern);
@@ -24,6 +24,7 @@ class Router
             'middleware' => $middleware,
         ];
     }
+
 
 
     public function dispatch($method, $uri)

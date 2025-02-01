@@ -20,4 +20,12 @@ class HomeController extends Controller {
         $data = ['title' => 'About Page', 'message' => 'Ini adalah halaman about.'];
         $this->view('home', $data);
     }
+    public function test($var)
+    {
+        echo $var;
+    }
+    public function detail($var, $detail)
+    {
+        echo $var . ' - ' . $detail;
+    }
 }
