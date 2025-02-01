@@ -22,7 +22,7 @@ class HomeController extends Controller {
     }
     public function test($var)
     {
-        echo $var;
+        echo route('test.route', ['var' => '123']); // Output: /test/123
     }
     public function detail($var, $detail)
     {

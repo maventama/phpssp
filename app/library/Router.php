@@ -7,9 +7,21 @@ class Router
 {
     private $routes = [];
     private $middleware = [];
+    private $namedRoutes = [];
 
+    private static $instance;
 
-    public function add($method, $route, $action, $middleware = [])
+    public function __construct()
+    {
+        self::$instance = $this;
+    }
+
+    public static function getInstance()
+    {
+        return self::$instance;
+    }
+
+    public function add($method, $route, $action, $middleware = [], $name = null)
     {
         $routePattern = str_replace('/', '\/', $route);
         $routePattern = preg_replace_callback('/\{([a-zA-Z0-9_]+)\}/', function ($matches) {
@@ -22,10 +34,18 @@ class Router
             'route' => $routePattern,
             'action' => $action,
             'middleware' => $middleware,
+            'name' => $name
         ];
+
+        if ($name) {
+            $this->namedRoutes[$name] = $route;
+        }
     }
 
-
+    public function getNamedRoutes()
+    {
+        return $this->namedRoutes;
+    }
 
     public function dispatch($method, $uri)
     {
