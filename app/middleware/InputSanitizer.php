@@ -1,7 +1,9 @@
 <?php
 
-class InputSanitizer {
-    public function handle($request) {
+class InputSanitizer
+{
+    public function handle($method = null, $uri = null)
+    {
         foreach ($_POST as $key => $value) {
             $_POST[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         }
